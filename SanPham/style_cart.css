@@ -1,0 +1,86 @@
+.quantity-control {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 15px; /* Tạo góc bo tròn */
+    overflow: hidden;
+    padding: 5px;
+    padding: 0 47px 0 15px;
+    width:37%;
+}
+
+.quantity-control button {
+    text-transform: uppercase;
+    font-size: 16px;
+    background: transparent; 
+    cursor: pointer;
+   
+}
+
+
+.quantity-control .nuttru {
+    border-radius: 50% 0px 0px 50%  ;
+    padding: 5px 10px 5px 0px; 
+    border: 0px solid #ccc;
+    margin-left: 0px;
+}
+
+
+.quantity-control .nutcong {
+    border-radius: 0px 50% 50% 0px;
+    padding: 5px 20px 5px 0px; 
+    border:2px solid #ccc;
+}
+
+.quantity-control input {
+    text-align: center;
+    width: 40px;
+    font-size: 16px;
+    padding: 5px 0;    
+    border:0px solid #ccc;
+  
+}
+.quantity-control:hover {
+    border:1px solid #888 ;
+}
+
+/* button mua sắm */
+.button{
+    display: flex;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.button .mua-sam{
+    margin-right: 40px;
+}
+
+.button .mua-sam button{
+    padding: 10px 20px;
+    border: 1px solid black;
+    cursor: pointer;   
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #fff;
+
+}
+.button .mua-sam button:hover{
+    background-color: #ddd;
+}
+.button .thanh-toan button{
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.button .thanh-toan button:hover{
+    background-color: #dddddd;
+}
+
+.button .thanh-toan a{
+    color: #fff;
+}
+.button .thanh-toan a:hover{
+    color: black;
+}
+
+  

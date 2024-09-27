@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JDT | Công ty chuyên cung cấp trang sức đá quý</title>
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Font/fontawesome-free-6.5.2-web/css/all.min.css">
+    <link rel="stylesheet" href="stylepd.css">
+    <link rel="stylesheet" href="styleproduct.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <script src="jquery/jquery3.7.1.js"></script>
+    <script src="js/script_product.js" defer></script>
+</head>
+
+<body>
+    <div id="wrapper">
+      <div id="phan_dau">
+        <!-- Header -->
+        <div id="head_link">
+          <div id="head_link_left">
+            <a href="../index.html" class="header_logo">
+              <canvas id="logoCanvas"></canvas>
+            </a>
+            <ul>
+                <li>
+                  <a id="sub_menu" href="#" style="color: rgb(255, 161, 46)">Trang chủ</a>
+                </li>
+                <li>
+                  <a id="sub_menu" href="#">Giới thiệu</a>
+                </li>
+                <li>
+                  <a id="sub_menu" href="#">Sản phẩm</a>
+                  <ul class="dark">
+                    <li class="center" style="flex-direction: column-reverse;">
+                      <a target="_blank" href="Nhan.html" id="head_link_left_li_title">NHẪN
+                        <div class="head_link_left_li_title_hr"></div>
+                      </a>
+                      <a target="_blank" href="Nhan.html"><div class="sub_menu_bg" style="background-image: url(images/SPN4/1.avif);"></div></a>              
+                    </li>
+                    <li class="center" style="flex-direction: column-reverse;">
+                      <a target="_blank" href="Vong_Lac.html" id="head_link_left_li_title">VÒNG - LẮC
+                        <div class="head_link_left_li_title_hr"></div>
+                      </a>
+                      <a target="_blank" href="Vong_Lac.html"><div class="sub_menu_bg" style="background-image: url(khuyen_mai_list/7.avif);"></div></a>              
+                    </li>
+                    <li class="center" style="flex-direction: column-reverse;">
+                      <a target="_blank" href="Day_Chuyen.html" id="head_link_left_li_title">DÂY CHUYỀN
+                        <div class="head_link_left_li_title_hr"></div>
+                      </a>
+                      <a target="_blank" href="Day_Chuyen.html"><div class="sub_menu_bg" style="background-image: url(images/SPDC1/1.avif);"></div></a>              
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  <a id="sub_menu" href="#">Tin tức</a>
+                </li>
+                <li>
+                  <a id="sub_menu" href="#">Liên hệ</a>
+                </li>
+                <li>
+                  <a id="sub_menu" href="#">Bộ sưu tập mới</a>
+                </li>
+              </ul>
+          </div>
+          <div id="head_link_right">
+            <nav class="navbar bg-body-light">
+              <div class="container-fluid">
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search" />
+                  <button class="btn btn-outline-warning" type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </form>
+              </div>
+            </nav>
+            <div id="header_box">
+              <div id="header_box_Sign_in">
+                <!-- Nơi hiển thị tên người dùng -->
+                <span id="user_name"></span> 
+                <!-- Nút "Đăng xuất" -->
+                <button id="logout" style="margin-left: 3% ;display: none;border: transparent;background-color: transparent;vertical-align: top;" title="Đăng xuất">
+                  <img src="images/logout.png" style="width: 2.5ch" alt="Đăng Xuất" />
+                </button>
+              </div>
+              <script>
+                document.addEventListener('DOMContentLoaded', () => {
+                  // Kiểm tra trạng thái đăng nhập
+                  const loggedInUser = localStorage.getItem('loggedInUser');
+                  const accountLink = document.getElementById('header_box_Sign_in');
+                  const logoutLink = document.getElementById('logout');
+                  const userNameSpan = document.getElementById('user_name'); // Thêm dòng này
+              
+                  // Cập nhật nội dung ô "Tài khoản"
+                  if (loggedInUser) {
+                    // Hiển thị tên người dùng
+                    userNameSpan.textContent = `Chào, ${loggedInUser}`; 
+                    // Hiển thị nút "Đăng xuất"
+                    logoutLink.style.display = 'inline-block'; // Hoặc 'flex'
+                  } else {
+                    accountLink.textContent = 'Tài khoản';
+                    logoutLink.style.display = 'none';
+                  }
+              
+                  // Xử lý sự kiện click vào ô "Tài khoản"
+                  accountLink.addEventListener('click', function() {
+                    if (!loggedInUser) {
+                      // Người dùng chưa đăng nhập, chuyển hướng đến trang đăng nhập
+                      window.location.href = '../SignIn-SignUp/index.html';
+                    } else {
+                      // Người dùng đã đăng nhập, hiển thị menu tài khoản
+                      console.log('Người dùng đã đăng nhập, hiển thị menu tài khoản...');
+                      // Thêm mã để hiển thị menu tài khoản ở đây nếu cần
+                    }
+                  });
+              
+                  // Xử lý sự kiện click vào nút Đăng xuất
+                  logoutLink.addEventListener('click', function() {
+                    localStorage.removeItem('loggedInUser');
+                    alert('Đăng xuất thành công!');
+                    window.location.href = window.location.href;// Tải lại trang để cập nhật giao diện
+                  });
+                });
+              </script>
+              <div id="header_box_Gio_hang">
+                <button id="cartButton" type="button" class="btn position-relative" >
+                  <a href="cart.html">
+                    <img src="images/shopping-cart.png" alt="Giỏ hàng" />
+                    <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                      0
+                      <!-- Số lượng sản phẩm trong giỏ hàng (ban đầu là 0) -->
+                    </span>
+                  </a>
+                </button>
+              </div>
+              <button class="btn btn-outline-secondary" style="width: 27%;" id="darkModeToggle">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- End Header -->
+      </div>
+      <!-- End Phần Đầu -->
+  
+  
+        <!-- Bắt đầu Phần Giữa -->
+        <section class="product" data-product-id="30">
+            <div class="container">
+                <div class="product-top row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-auto">
+                                <a href="index.html">Trang Chủ</a>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa fa-angle-right bread-sep-icon" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-md-auto">
+                                <a href="Vong_Lac.html">Vòng tay</a>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fa fa-angle-right bread-sep-icon" aria-hidden="true"></i>
+                            </div>
+                            <div class="col-md-auto">
+                                <p>Vòng tay bạch kim nữ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content row">
+                    <div class="product-content-left text-center col-md-7">
+                        <div class="product-content-left-cot">
+                            <div class="product-content-left-anhchinh d-flex">
+                                <div class="product-content-left-big-img border rounded-5">
+                                    <!-- Ảnh Chính -->
+                                    <div id="carouselExampleIndicators" class="carousel slide">
+                                        <div class="carousel-indicators">
+                                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                                        </div>
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="images/SPV6/1.avif" data-product-image alt="Ảnh Sản Phẩm" id="img-big" class="r d-block rounded-5">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="images/SPV6/2.avif" alt="Ảnh Sản Phẩm" id="img-big" class="r d-block rounded-5">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="images/SPV6/3.avif" alt="Ảnh Sản Phẩm" id="img-big" class="r d-block rounded-5">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="images/SPV6/4.avif" alt="Ảnh Sản Phẩm" id="img-big" class="r d-block rounded-5">
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="product-content-left-small-img">
+                                    <button class="buttoncube rounded">
+                                        <img src="images/SPV6/1.avif" class="rounded-1" alt="Ảnh sản phẩm">
+                                    </button>
+                                    <button class="buttoncube rounded">
+                                        <img src="images/SPV6/2.avif" class="rounded-1" alt="Ảnh sản phẩm">
+                                    </button>
+                                    <button class="buttoncube rounded">
+                                        <img src="images/SPV6/3.avif" class="rounded-1" alt="Ảnh sản phẩm">
+                                    </button>
+                                    <button class="buttoncube rounded">
+                                        <img src="images/SPV6/4.avif" class="rounded-1" alt="Ảnh sản phẩm">
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="container my-4">
+                                <div class="product-content-left-khungicon rounded-2 border border-2">
+                                    <div class="row no-gutters justify-content-center d-flex">
+                                        <div class="product-content-left-khungicon-camkettext col-12">
+                                            <h6><img src="images/camket.png" width="7%" alt="Cam kết"><b>CAM KẾT CHO KHÁCH HÀNG</b></h6>
+                                        </div>
+                                    </div>
+                                    <div class="noidungcamket">
+                                        <div class="row">
+                                            <div class="product-content-left-khungicon-icon col-md-4">
+                                                <img src="images/hoantien.png" class="iconcamket" alt="Hoàn tiền">
+                                                <div class="description">Không hài lòng hoàn tiền</div>
+                                            </div>
+                                            <div class="product-content-left-khungicon-icon col-md-4">
+                                                <img src="images/trahang.png" class="iconcamket" alt="Đổi trả">
+                                                <div class="description">30 ngày đổi trả sản phẩm</div>
+                                            </div>
+                                            <div class="product-content-left-khungicon-icon col-md-4">
+                                                <img src="images/chatluong.png" class="iconcamket" alt="Chất lượng">
+                                                <div class="description">Cam kết về chất lượng</div>
+                                            </div>
+                                            <div>
+                                                <p></p>
+                                            </div>
+                                            <div>
+                                                <p></p>
+                                            </div>
+                                            <div class="product-content-left-khungicon-icon col-md-4">
+                                                <img src="images/kiemtrahang.png" class="iconcamket" alt="Kiểm tra hàng">
+                                                <div class="description">Kiểm tra trước thanh toán</div>
+                                            </div>
+                                            <div class="product-content-left-khungicon-icon col-md-4">
+                                                <img src="images/baohanh.png" class="iconcamket" alt="Bảo hành">
+                                                <div class="description">Bảo hành trong 24 tháng</div>
+                                            </div>
+                                            <div class="product-content-left-khungicon-icon col-md-4">
+                                                <img src="images/fs-.png" class="iconcamket" alt="FreeShip">
+                                                <div class="description">Free Ship toàn quốc</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-content-right rounded-3 col-md-5">
+                        <div class="product-content-right-name">
+                            <h2 data-product-name>Gold Earrings</h2>
+                            <!-- Sản Phẩm -->
+                            <p>Sản phẩm được làm từ vàng trắng có màu bạc với thiết kế nữ tính, mang đến vẻ đẹp sang trọng, quý phái.</p>
+                        </div>
+                        <div class="product-content-right-giatien">
+                            <b data-product-price >50,900,000<sup>đ</sup></b>
+                        </div>
+                        <!-- <div class="product-content-right-color row">
+                            <div class="selectColor">
+                                <img src="images/SPN1/PL3.avif" title="Hồng Gold" class="col rounded-2" alt="Hồng Gold">
+                            </div>
+                            <div class="selectColor">
+                                <img src="images/SPN1/PL2.avif" title="Bạc Gold" class="col rounded-2" alt="Bạc Gold">
+                            </div>
+                            <div class="selectColor">
+                                <img src="images/SPN1/PL1.avif" title="Vàng Gold" class="col rounded-2" alt="Vàng Gold">
+                            </div>
+                        </div> -->
+                        <div class="product-content-right-size">
+                            <div class="d-flex">
+                                <p class="col-md-3">
+                                    <span>Size</span>
+                                    <select class="col-md-auto">
+                                        <option disabled>Kích cỡ</option>
+                                        <!-- Các tùy chọn từ 1 đến 30 -->
+                                        <script>
+                                            for (let i = 36; i <= 62; i++) {
+                                                document.write('<option>' + i + '</option>');
+                                            }
+                                        </script>
+                                    </select>
+                                </p>
+                                <div class="huongdandosize">
+                                    <div class="col-md-auto huong-dan-link">
+                                        <p>Hướng dẫn đo size <img src="images/iconruler.png" alt="icon ruler"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quantity row">
+                                <div class="col-12 d-flex align-items-center">
+                                    <span>Số lượng</span>
+                                    <div class="d-flex align-items-center">
+                                        <button class="minus nuttru">-</button>
+                                        <input type="number" step="1" min="1" max="10" value="1" title="Qty" class="qty" id="quantityInput">
+                                        <button class="plus nutcong">+</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const quantityInput = document.getElementById('quantityInput');
+                                const plusBtn = document.querySelector('.plus');
+                                const minusBtn = document.querySelector('.minus');
+                                plusBtn.addEventListener('click', function() {
+                                    let newValue = parseInt(quantityInput.value) + 1;
+                                    if (newValue <= 10) {
+                                        quantityInput.value = newValue;
+                                    } else {
+                                        alert('Nếu bạn muốn mua hơn 10 sản phẩm vui lòng liên hệ trực tiếp CSKH của chúng tôi.');
+                                    }
+                                });
+                                minusBtn.addEventListener('click', function() {
+                                    let newValue = parseInt(quantityInput.value) - 1;
+                                    if (newValue >= 1) {
+                                        quantityInput.value = newValue;
+                                    }
+                                });
+                                quantityInput.addEventListener('input', function() {
+                                    let newValue = parseInt(quantityInput.value);
+                                    if (newValue < 1) {
+                                        quantityInput.value = 1;
+                                    } else if (newValue > 10) {
+                                        alert('Nếu bạn muốn mua hơn 10 sản phẩm vui lòng liên hệ trực tiếp CSKH của chúng tôi.');
+                                        quantityInput.value = 10;
+                                    }
+                                });
+                            });
+                        </script>
+                        <div class="product-content-right-giohangandmuangay row">
+                            <div class="product-content-right-muangay col-md-6">
+                              <a href="cart.html">
+                                <button onclick="buyNow(this)" data-id="30">Mua ngay</button>
+                                <script>
+                                    function buyNow(buttonElement) {
+                                    const productId = parseInt(buttonElement.dataset.id);
+                                    const productInfo = getProductInfo(productId);
+                                    const quantityInput = document.getElementById('quantityInput'); // Lấy số lượng từ input
+                                    const quantity = parseInt(quantityInput.value) || 1; // Lấy giá trị, mặc định là 1 nếu không hợp lệ
+
+                                    if (productInfo) {
+                                        // Tạo một giỏ hàng tạm thời chỉ chứa sản phẩm được mua ngay
+                                        const tempCart = [
+                                        {
+                                            id: productId,
+                                            name: productInfo.name,
+                                            image: productInfo.image,
+                                            price: productInfo.price,
+                                            quantity: quantity
+                                        }
+                                        ];
+
+                                        // Lưu giỏ hàng tạm thời vào localStorage 
+                                        localStorage.setItem('tempCart', JSON.stringify(tempCart));
+
+                                        // Chuyển hướng đến trang thanh toán
+                                        window.location.href = "cart.html"; 
+                                    }
+                                    }
+                                </script>
+                              </a>
+                            </div>
+                            <div class="product-content-right-giohang col-md-6">
+                              <button 
+                                type="button" 
+                                class="btn btn-primary" 
+                                id="liveToastBtn" 
+                                data-id="30"
+                                onclick="addToCart(this)" > <img src="images/shopping-cart_1.svg" alt="Giỏ Hàng" class="icon">
+                                <span>Thêm vào giỏ hàng</span> 
+                              </button>
+                            </div>
+                          </div>
+                        <div class="product-content-right-chitiet">
+                            <div class="product-content-right-chitiet-top">
+                                <img src="images/daumunguoc.png" alt="Show chi tiết" onclick="myFunction()">
+                            </div>
+                            <div class="product-content-right-chitiet-content" id="productDetails">
+                                <h4 class="text-center" style="margin: 5px 0px;">THÔNG SỐ SẢN PHẨM</h4>
+                                <div class="thongsosanpham">
+                                    <div class="cot">
+                                        <!-- Color -->
+                                        <div class="row text-center row-color">
+                                            <div class="ten col-md-6">
+                                                <p>Thương Hiệu:</p>
+                                            </div>
+                                            <div class="chitiet col-md-6">
+                                                <p>JDT</p>
+                                            </div>
+                                        </div>
+                                        <!-- None color -->
+                                        <div class=" row row-none-color">
+                                            <div class="ten col-md-6">
+                                                <p>Loại:</p>
+                                            </div>
+                                            <div class="chitiet col-md-6">
+                                                <p>Vòng tay</p>
+                                            </div>
+                                        </div>
+                                        <!-- Color -->
+                                        <div class="row text-center row-color">
+                                            <div class="ten col-md-6">
+                                                <p>Màu sắc:</p>
+                                            </div>
+                                            <div class="chitiet col-md-6">
+                                                <p>Bạc</p>
+                                            </div>
+                                        </div>
+                                        <!-- None color -->
+                                        <div class=" row row-none-color">
+                                            <div class="ten col-md-6">
+                                                <p>Loại đá:</p>
+                                            </div>
+                                            <div class="chitiet col-md-6">
+                                                <p>Kim cương</p>
+                                            </div>
+                                        </div>
+                                        <!-- Color -->
+                                        <div class="row text-center row-color">
+                                            <div class="ten col-md-6">
+                                                <p>Trọng lượng đá:</p>
+                                            </div>
+                                            <div class="chitiet col-md-6">
+                                                <p>0.5 (grams)</p>
+                                            </div>
+                                        </div>
+                                        <!-- None color -->
+                                        <div class=" row row-none-color">
+                                            <div class="ten col-md-6">
+                                                <p>Trọng lượng sản phẩm:</p>
+                                            </div>
+                                            <div class="chitiet col-md-6">
+                                                <p>6.0578 (grams)</p>
+                                            </div>
+                                        </div>
+                                        <!-- Color -->
+                                        <div class="row text-center row-color">
+                                            <div class="ten col-md-6">
+                                                <p>Độ hoàn thiện:</p>
+                                            </div>
+                                            <div class="chitiet col-md-6">
+                                                <p> Xuất sắc</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script>
+                                function myFunction() {
+                                    var detailsElement = document.getElementById("productDetails");
+                                    // Kiểm tra trạng thái hiện tại của phần tử
+                                    if (detailsElement.style.maxHeight === "0px" || detailsElement.style.maxHeight === "") {
+                                        // Lấy chiều cao thực tế của phần tử và đặt max-height để nó trượt xuống
+                                        detailsElement.style.maxHeight = detailsElement.scrollHeight + "px";
+                                    } else {
+                                        // Đặt max-height về 0 để phần tử trượt lên và ẩn đi
+                                        detailsElement.style.maxHeight = "0px";
+                                    }
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="font-family: OpenSans;">
+                <div class="toast-header" style="background-color: #50f655;">
+                    <strong class="me-auto" style=" margin-left: 10px;">Thêm vào giỏ hàng thành công</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const toastTrigger = document.getElementById('liveToastBtn')
+                const toastLiveExample = document.getElementById('liveToast')
+                if (toastTrigger && toastLiveExample) {
+                    const toastBootstrap = new bootstrap.Toast(toastLiveExample)
+                    toastTrigger.addEventListener('click', function() {
+                        toastBootstrap.show()
+                    })
+                }
+            })
+        </script>
+        <div class="huong-dan-modal modal">
+            <div class="modal-content" style="font-family: sans-serif;">
+                <span class="close">×</span>
+                <p>
+                <h2 class="text-center" style="font-weight: 700;">HƯỚNG DẪN ĐO SIZE TRANG SỨC</h2>
+                <br>
+                <h4 style="font-weight: 600">I. Hướng dẫn đo size nhẫn</h4>
+                <h5 style="padding-left: 20px;font-weight: 550;">Cách 1: Đo đường kính chiếc nhẫn tương tự</h5>
+                <div class="row" style="padding-left: 2%;font-size: 20px;">
+                    <div class="col-md-6 ">
+                        <p>Nếu có một chiếc nhẫn khác để đo, cách chính xác nhất là bạn dung một chiếc nhẫn có độ rộng và kiểu dáng tương tự bạn định mua và làm theo các bước sau:</p>
+                        <p>- Bạn dùng thước để đo đường kính bên trong của chiếc nhẫn</p>
+                        <p>- Bạn đối chiếu số mm của thước với kích thước đường kính của bảng kích thước nhẫn bên trên</p>
+                        <p>- Kích thước nhẫn của bạn tương ứng với size số ghi dưới vòng tròn. Sau khi chọn size nhẫn, nhân viên <a href="../index.html" style="font-weight: 650;">JDT</a> sẽ gọi điện thoại xác nhận yêu cầu của bạn và tư vấn cụ thể để đảm bảo đáp ứng đúng yêu cầu của bạn.</p>
+                        <p style="color: red;font-weight: 600;">*Lưu ý:</p>
+                        <p>- Size nhẫn phổ biến nhất của <a href="../index.html" style="font-weight: 650;">JDT</a> thường có cho khách hàng đối với nhẫn nữ là size 8 - 12 và đối với nam là size 14 - 18</p>
+                        <p>- Trường hợp size nhẫn bạn đo được không có, <a href="../index.html" style="font-weight: 650;">JDT</a> sẽ đặt làm trong thời gian tối đa là 2 tuần </p>
+                    </div>
+                    <div class="col-md-6 AnhSizeNhan">
+                        <img src="images/SizeNhan.jpg" alt="Bảng Size">
+                    </div>
+                </div>
+                <h5 style="padding-left: 20px;font-weight: 550;">Cách 2: Đo size nhẫn thủ công</h6>
+                    <div class="row" style="padding-left: 2%;font-size: 20px;">
+                        <div class="col-md-6">
+                            <p>Lấy số đo quanh ngón tay</p>
+                            <p>- Bước 1: Dùng một sợ dây (hoặc thước dây/chỉ/giấy bản nhỏ) quấn quanh ngón tay đeo nhẫn, đánh dấu chỗ tiếp giáp</p>
+                            <p>- Bước 2: Đo chiều dài đoạn dây vừa đo</p>
+                            <p>- Bước 3: Lấy chiều dàu đó trừ độ dài đai nhẫn nhân 2 (tùy theo mẫu nhẫn có độ dày khác nhau).<a href="../index.html" style="font-weight: 650;">JDT</a> sẽ gọi điện thoại xác nhận yêu cầu của bạn và tư vấn cụ thể để đảm bảo đáp ứng đúng yêu cầu của bạn.</p>
+                            <p>- Bước 4: Sau đó chia cho 3.14 là đường kính nhẫn</p>
+                            <p>- Bước 5: Bạn đối chiếu đường kính bạn vừa đo (theo mm) với bảng kích thước nhẫn bên trên. Kích thước nhẫn của bạn tương ứng với size số ghi dưới vòng tròn.</p>
+                            <p style="color: red;font-weight: 600;">*Lưu ý:</p>
+                            <p>Nếu khi thời tiết lạnh ngón tay của bạn có thể nhỏ hơn bình thường bạn nên cộng thêm cho chi vi là 1 mm còn kho thời tiết nóng thì ngược lại, trừ đi 1 mm. Trường hợp xương khớp ngón tay của bạn to, thì bạn nên đo chu vi ở gần khớp (không phải trên khớp) Sao cho kho đeo nhẫn dễ vào nhưng không bị tuột mất.</p>
+                        </div>
+                        <div class="col-md-6 AnhSizeNhan">
+                            <img src="images/dosizethucong.jpeg" alt="Bảng Size">
+                        </div>
+                    </div>
+                    <hr style="border: 3px solid;border-radius: 50%;">
+                    <h4 style="font-weight: 600">II. Hướng dẫn đo size lắc/vòng tay</h4>
+                    <h5 style="padding-left: 20px;font-weight: 550;">Cách 1: Đo đường kính vòng tay tương tự</h5>
+                    <div class="row" style="padding-left: 2%;font-size: 20px;">
+                        <div class="col-md-6 ">
+                            <p>Bạn dùng thước để đo đường kính bên trong của chiếc vòng tay.</p>
+                            <p>- Sau khi có kích thước, bạn đối chiếu số mm của thước với kích thước đường kính của bảng kích thước vòng như trên.</p>
+                            <p>- Kích thước vòng tay của bạn chính là size số ghi dưới vòng tròn. Sau khi chọn size vòng, nhân viên <a href="../index.html" style="font-weight: 700;">JDT</a> sẽ gọi điện thoại xác nhận yêu cầu của bạn và tư vấn cụ thể để đảm bảo đáp ứng đúng yêu cầu của bạn.</p>
+                            <p style="color: red;font-weight: 600;">*Lưu ý:</p>
+                            <p>- Size vòng phổ biến của <a href="../index.html" style="font-weight: 700;">JDT</a> thường có đối với vòng tay nữ là size 52 - 55, đối với vòng tay nam là size 56 - 60 và đối với vòng tay trẻ em là size 36 - 42</p>
+                            <p>- Trường hợp size vòng tay đo được không có, <a href="../index.html" style="font-weight: 700;">JDT</a> sẽ đặt làm trong thời gian tối đa là 2 tuần </p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="images/dovongtay2.png" alt="Bảng Size" width="100%" height="auto" style="min-height: 100%;">
+                        </div>
+                    </div>
+                    <h5 style="padding-left: 20px;font-weight: 550;">Cách 2: Đo thủ công</h5>
+                    <div class="row" style="padding-left: 2%;font-size: 20px;">
+                        <div class="col-md-6 ">
+                            <h5 style="font-weight: 600;">Vòng tròn</h5>
+                            <p>- Bước 1: Dùng một sợi dây (hoặc thước dây/chỉ/giáy bản nhỏ) quấn quanh cổ tay đeo vòng, đánh dấu chỗ tiếp giáp.</p>
+                            <p>- Bước 3: Lấy chiều dài đó chia cho 3.14 là sẽ ra đường kính vòng.</p>
+                            <p>- Bước 4: Bạn đối chiêu đường kính bạn vừa đo (theo mm) với bảng kích thước vòng bên trên. Kích thước vòng của bạn tương ứng với size số ghi dưới vòng tròn</p>
+                            <p>- Trường hợp size vòng tay đo được không có, <a href="../index.html" style="font-weight: 700;">JDT</a> sẽ đặt làm trong thời gian tối đa là 2 tuần </p>
+                            <h5 style="font-weight: 600;">Vòng oval</h5>
+                            <p>- Bạn có thể đo chiều ngang cổ tay</p>
+                            <p>- Kích thước vòng tay của bạn chính là size số ghi dưới vòng tròn</p>
+                        </div>
+                        <div class="col-md-6" style="padding-top: 10%;">
+                            <img src="../../images/dovongthucong.webp" alt="Bảng Size" width="100%" height="auto" style="min-height: 50%;">
+                        </div>
+                    </div>
+                    <hr style="border: 3px solid;border-radius: 50%;">
+                    <h4 style="font-weight: 600">III. Hướng dẫn đo size dây chuyền</h4>
+                    <h6 style="padding-left: 25px;font-size: 20px;">
+                        <p style="font-weight: 600;">Để tìm được một thiết kế dây chuyền phù hợp với khuôn mặt và trang phục, bạn có thể tham khảo một vài thông tin sau:</p>
+                        <p>- Dây chuyền dài từ 35 – 40cm: Là loại dây chuyền sát với chân cổ nhưng không gây khó chịu khi sinh hoạt, vận động</p>
+                        <p>- Dây chuyền dài từ 45cm: Chiều dài của dây chạm đến ngang xương quai đòn, đây là kiểu phổ biến nhất vì nó tôn được khuôn mặt người đeo.</p>
+                        <p>- Dây chuyền dài từ 50 – 55cm: Dây chuyền sẽ nằm ở vị trí dưới xương quai đòn nhưng trên ngực vài centimet. Đây là chiều dài phù hợp với các thiết kế dây chuyền có mặt dây đi kèm.</p>
+                        <p>- Dây chuyền dài từ 60cm: Những loại dây chuyền có chiều dài như thế này thường chạm đến giữa ngực, thích hợp với những trang phục xẻ sâu.</p>
+                        <p>Dây chuyền dài từ 70cm trở lên: Đây là mẫu dây chuyền dài xuống quá ngực cho đến ngang rốn, thường là dạng dây chuyền trơn hoặc xâu chuỗi hạt, ít xuất hiện cùng các loại mặt đá đính kèm.</p>
+                    </h6>
+                    <h5 style="padding-left: 20px;font-weight: 550;">Cách 1: Đo size dây chuyền từ dây chuyền bạn đang đeo</h5>
+                    <div class="row" style="padding-left: 2%;font-size: 20px;">
+                        <div class="col-md-12 ">
+                            <p>Nếu có dây chuyền có chiều dài và kiểu dáng tương tự như thiết kế dây chuyền bạn đang dự định mua, bạn có thể sử dụng nó để tìm size của mình.</p>
+                            <p>Bước 1: Dùng thước đo chiều dài dây chuyền đang có.</p>
+                            <p>Bước 2: Sau khi có chiều dài, kích cỡ chính là size dây chuyền (đơn vị cm) đối với các size dây chuyền của <a href="../index.html" style="font-weight: 700;">JDT</a>.</p>
+                            <p style="color: red;font-weight: 600;">*Lưu ý:</p>
+                            <p>- Size dây chuyền phổ biến của <a href="../index.html" style="font-weight: 700;">JDT</a> thường là size 42 hoặc size 45.</p>
+                            <p>- Trong trường hợp size dây chuyền của bạn hiện không có sẵn, <a href="../index.html" style="font-weight: 700;">JDT</a> sẽ đặt làm trong thời gian tối đa 2 tuần.</p>
+                        </div>
+                    </div>
+                    <h5 style="padding-left: 20px;font-weight: 550;">Cách 2: Đo size dây chuyền thủ công</h5>
+                    <div class="row" style="padding-left: 2%;font-size: 20px;">
+                        <div class="col-md-12">
+                            <p>Trong trường hợp không có dây chuyền khác để tham khảo, bạn có thể sử dụng cách đo thủ công nhưng cách này thường không chính xác lắm, tuy nhiên vẫn khá hiệu quả để bạn có thể ước lượng size.</p>
+                            <p>- Bước 1: Dùng một sợi chỉ hoặc dây quấn chừng quanh cổ và điều chỉnh theo đúng độ dài bạn muốn, sau đó bạn dùng thước kẻ đo độ dài như thao tác đã hướng dẫn ở cách 2.</p>
+                            <p>Bước 2: Đối chiếu với các size dây chuyền phía trên.</p>
+                        </div>
+                    </div>
+                    <br>
+                    <h4 class="text-center" style="font-weight: 600;">MỌI THẮC MẮC VUI LÒNG LIÊN HỆ <a href="../index.html" style="font-weight: 700;font-size: x-large;">JDT</a> ĐỂ ĐƯỢC HỖ TRỢ</h4>
+                    </p>
+            </div>
+        </div>
+        <!-- Sản phẩm liên quan -->
+        <section>
+            <div class="product-sanphamlienquan">
+                <div class="product-sanphamlienquan-name">
+                    <hr style="width: 200%;margin-left: -50%;height: 0px;">
+                    <p>CÓ THỂ BẠN SẼ THÍCH</p>
+                    <hr style="width: 200%;margin-left: -50%;height: 0px;">
+                </div>
+            </div>
+            <div class="product-sanphamlienquan-sanpham">
+                <div class="product-sanphamlienquan-sanpham-show">
+                    <div class="regularSide">
+                        <div class="product-sanphamlienquan_chitiet border border-3 rounded-4">
+                            <a href="26.html">
+                                <img src="images/SPV2/1.avif">
+                                <div class="nen_mo text-center">
+                                    <h5>Emerald Ring</h5>
+                                    <h5><b>97,900,000<sup>đ</sup></b></h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-sanphamlienquan_chitiet border border-3 rounded-4">
+                            <a href="27.html">
+                                <img src="images/SPV3/1.avif">
+                                <div class="nen_mo text-center">
+                                    <h5>Diamond Necklacei</h5>
+                                    <h5><b>72,900,000<sup>đ</sup></b></h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-sanphamlienquan_chitiet border border-3 rounded-4">
+                            <a href="28.html">
+                                <img src="images/SPV4/1.avif">
+                                <div class="nen_mo text-center">
+                                    <h5>Pearl Bracelet</h5>
+                                    <h5><b>199,900,000<sup>đ</sup></b></h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-sanphamlienquan_chitiet border border-3 rounded-4">
+                            <a href="29.html">
+                                <img src="images/SPV5/1.avif">
+                                <div class="nen_mo text-center">
+                                    <h5>Ruby Pendant</h5>
+                                    <h5><b>43,900,000<sup>đ</sup></b></h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-sanphamlienquan_chitiet border border-3 rounded-4">
+                            <a href="30.html">
+                                <img src="images/SPV6/1.avif">
+                                <div class="nen_mo text-center">
+                                    <h5>Gold Earrings</h5>
+                                    <h5><b>50,900,000<sup>đ</sup></b></h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-sanphamlienquan_chitiet border border-3 rounded-4">
+                            <a href="31.html">
+                                <img src="images/SPV6/1.avif">
+                                <div class="nen_mo text-center">
+                                    <h5>Sapphire Bracelet</h5>
+                                    <h5><b>373,900,000<sup>đ</sup></b></h5>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+        </script>
+        </section>
+        <!-- End Phần Giữa -->
+        <div id="phan_cuoi">
+            <div id="footer">
+                <div id="footer_left">
+                    <div>
+                        <p>&copy; 2024 Công Ty Cổ Phần Vàng Bạc Đá Quý JDT</p>
+                        <p><img src="../images/map.png" alt=""> 140 Lê Trọng Tấn, Tân Phú, TP.HCM</p>
+                        <p><img src="../images/phone-book.png" alt=""> SĐT : 0975088626</p>
+                        <p><img src="../images/email.png" alt=""> Contact : contact@jdt.vn</p>
+                    </div>
+                </div>
+                <div id="footer_mid">
+                    <h5>DỊCH VỤ KHÁCH HÀNG
+                        <hr>
+                    </h5>
+                    <ul>
+                        <li><a href="">Điều khoản và điều kiện</a></li>
+                        <li><a href="">Chính sách trả hàng hoàn tiền</a></li>
+                        <li><a href="">Chính sách giao hàng</a></li>
+                        <li><a href="">Chính sách quyền riêng tư</a></li>
+                    </ul>
+                </div>
+                <div id="footer_mid">
+                    <h5>THÔNG TIN CHUNG
+                        <hr>
+                    </h5>
+                    <ul>
+                        <li><a href="">Tin trang sức</a></li>
+                        <li><a href="">Quyền lợi thành viên</a></li>
+                        <li><a href="">Ưu đãi khi đánh giá</a></li>
+                    </ul>
+                </div>
+                <div id="footer_right">
+                    <h5>THEO DÕI CHÚNG TÔI
+                        <hr>
+                    </h5>
+                    <div class="footer_right_1">
+                        <img src="images/facebook.png" alt="">
+                        <img src="images/instagram.png" alt="">
+                        <img src="images/twitter.png" alt="">
+                        <img src="images/threads.png" alt="">
+                    </div>
+                    <h5>XEM THÊM TẠI
+                        <hr>
+                    </h5>
+                    <div class="footer_right_2">
+                        <img src="images/youtube.png" alt="">
+                        <img src="images/social-media.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Lưu trữ URL hiện tại vào sessionStorage khi trang được tải
+        window.addEventListener('load', () => {
+          if (window.location.pathname !== '/SignIn-SignUp/index.html') { 
+            sessionStorage.setItem('returnURL', window.location.href);
+          }
+        });
+      </script>
+    <script src="../app.js"></script>
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <script src="js/cart.js" type="text/javascript" charset="utf-8"></script>
+    <script src="slick/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script src="slick/slick.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+
+</html>

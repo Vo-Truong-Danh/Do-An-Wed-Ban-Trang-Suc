@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JDT | Công ty chuyên cung cấp trang sức đá quý</title>
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="Font/fontawesome-free-6.5.2-web/css/all.min.css">
+    <link rel="stylesheet" href="stylepd.css">
+    <link rel="stylesheet" href="styleproduct.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <script src="jquery/jquery3.7.1.js"></script>
+    <script src="js/script_product.js" defer></script>
+    <link rel="stylesheet" href="style_cart.css">
+
+</head>
+<body>
+    <div id="wrapper">
+        <div id="phan_dau">
+            <!-- Header -->
+            <div id="head_link">
+                <div id="head_link_left">
+                    <a href="../index.html" class="header_logo">
+                        <canvas id="logoCanvas"></canvas>
+                    </a>   
+                    <ul>
+                        <li>
+                          <a id="sub_menu" href="#" style="color: rgb(255, 161, 46)">Trang chủ</a>
+                        </li>
+                        <li>
+                          <a id="sub_menu" href="#">Giới thiệu</a>
+                        </li>
+                        <li>
+                          <a id="sub_menu" href="#">Sản phẩm</a>
+                          <ul class="dark">
+                            <li class="center" style="flex-direction: column-reverse;">
+                              <a target="_blank" href="Nhan.html" id="head_link_left_li_title">NHẪN
+                                <div class="head_link_left_li_title_hr"></div>
+                              </a>
+                              <a target="_blank" href="Nhan.html"><div class="sub_menu_bg" style="background-image: url(images/SPN4/1.avif);"></div></a>              
+                            </li>
+                            <li class="center" style="flex-direction: column-reverse;">
+                              <a target="_blank" href="Vong_Lac.html" id="head_link_left_li_title">VÒNG - LẮC
+                                <div class="head_link_left_li_title_hr"></div>
+                              </a>
+                              <a target="_blank" href="Vong_Lac.html"><div class="sub_menu_bg" style="background-image: url(khuyen_mai_list/7.avif);"></div></a>              
+                            </li>
+                            <li class="center" style="flex-direction: column-reverse;">
+                              <a target="_blank" href="Day_Chuyen.html" id="head_link_left_li_title">DÂY CHUYỀN
+                                <div class="head_link_left_li_title_hr"></div>
+                              </a>
+                              <a target="_blank" href="Day_Chuyen.html"><div class="sub_menu_bg" style="background-image: url(images/SPDC1/1.avif);"></div></a>              
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a id="sub_menu" href="#">Tin tức</a>
+                        </li>
+                        <li>
+                          <a id="sub_menu" href="#">Liên hệ</a>
+                        </li>
+                        <li>
+                          <a id="sub_menu" href="#">Bộ sưu tập mới</a>
+                        </li>
+                      </ul>
+                </div>
+                <div id="head_link_right">      
+                    <nav class="navbar bg-body-light">
+                        <div class="container-fluid">
+                            <form class="d-flex" role="search">
+                                <input class="form-control me-2" type="search" placeholder="Tìm kiếm sản phẩm" aria-label="Search">
+                                <button class="btn btn-outline-warning" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        </div>
+                    </nav>
+                    <div id="header_box">
+                        <a href="../SignIn-SignUp/index.html" target="_blank">
+                            <div id="header_box_Sign_in" title="Đăng nhập">Tài khoản</div>
+                        </a>
+                        <div id="header_box_Gio_hang">
+                            <a href="cart.html">
+                                <button id="cartButton" type="button" class="btn position-relative">
+                                    <img id="img_shopping_cart" src="images/shopping-cart.png" alt="Giỏ hàng" title="Giỏ hàng">
+                                    <span id="cartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                        0 
+                                        <span class="visually-hidden">Sản phẩm trong giỏ hàng</span>
+                                    </span>
+                                </button>
+                            </a>
+                        </div>
+                        <button class="btn btn-outline-secondary" style="width: 27%;" id="darkModeToggle">
+                            <i class="fa-solid fa-circle-half-stroke"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- End Header -->
+        </div>
+        <!-- End Phần Đầu -->
+
+        <!-- Bắt đầu Phần Giữa (Giỏ hàng) -->
+        <section class="cart">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="progress-bar-container">
+                            <div class="progress-bar">
+                                <div class="step active"> <i class="fas fa-shopping-cart"></i> </div>
+                                <div class="line"></div>
+                                <div class="step"> <i class="fas fa-map-marker-alt"></i> </div>
+                                <div class="line"></div>
+                                <div class="step"> <i class="fas fa-credit-card"></i> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-table">
+                <div class="row">
+                    <div class="col-12 my-5">
+                        <table class="table align-middle">
+                            <thead>
+                                <tr>
+                                    <th scope="col" class="imgcart">Ảnh sản phẩm</th>
+                                    <th scope="col">Tên sản phẩm</th>
+                                    <th scope="col">Giá sản phẩm</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Thành tiền</th>
+                                    <th scope="col">Xóa</th>
+                                </tr>
+                            </thead>
+                            <tbody id="products-cart">
+                                </tbody>
+                        </table>
+                    </div>
+
+                    <div class="col-12 total">
+                        <hr style="width: 35%;height: 0px;"> <!--phần thêm vào !-->
+                        <h4>TỔNG THÀNH TIỀN: <span id="total-money">0</span><sup>đ</sup></h4>
+                        <hr style="width: 35%;height: 0px;"><!--phần thêm vào !-->
+                    </div>
+                    <!-- PHẦN MỚI THÊM VÀO -->
+                    <div class="button">
+                        <div class="mua-sam">
+                            <button class="btn btn-danger"><a href="../index.html">TIẾP TỤC MUA SẮM</a></button>
+                        </div>
+                        <div class="thanh-toan">
+                            <button class="btn btn-danger"><a href="">THANH TOÁN</a></button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Phần Giữa (Giỏ hàng) -->
+
+        <!-- Sản phẩm liên quan -->
+        <section>
+            <div class="product-sanphamlienquan">
+                <div class="product-sanphamlienquan-name">
+                    <hr style="width: 200%;margin-left: -50%;height: 0px;">
+                    <p>CÓ THỂ BẠN SẼ THÍCH</p>
+                    <hr style="width: 200%;margin-left: -50%;height: 0px;">
+                </div>
+            </div>
+            <div class="product-sanphamlienquan-sanpham">
+                <div class="product-sanphamlienquan-sanpham-show">
+                    <div class="regularSide">
+                        <div class="product-sanphamlienquan_chitiet border border-3 rounded-4">
+                            <a href="2.html">
+                                <img src="images/SPN2/1.avif">
+                                <div class="nen_mo text-center">
+                                    <h5>CLASH DE CARTIER</h5>
+                                    <h5><b>70,900,000<sup>đ</sup></b></h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-sanphamlienquan_chitiet border border-3 rounded-4">
+                            <a href="3.html">
+                                <img src="images/SPN3/1.avif">
+                                <div class="nen_mo text-center">
+                                    <h5>Leve RING</h5>
+                                    <h5><b>70,900,000<sup>đ</sup></b></h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-sanphamlienquan_chitiet border border-3 rounded-4">
+                            <a href="4.html">
+                                <img src="images/SPN4/1.avif">
+                                <div class="nen_mo text-center">
+                                    <h5>CLASSIC TRINITY</h5>
+                                    <h5><b>109,900,000<sup>đ</sup></b></h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-sanphamlienquan_chitiet border border-3 rounded-4">
+                            <a href="5.html">
+                                <img src="images/SPN5/1.avif">
+                                <div class="nen_mo text-center">
+                                    <h5>JUSTE UN CLOU</h5>
+                                    <h5><b>173,900,000<sup>đ</sup></b></h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-sanphamlienquan_chitiet border border-3 rounded-4">
+                            <a href="6.html">
+                                <img src="images/SPN6/1.avif">
+                                <div class="nen_mo text-center">
+                                    <h5>CLASH DE CARTIER</h5>
+                                    <h5><b>50,900,000<sup>đ</sup></b></h5>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="product-sanphamlienquan_chitiet border border-3 rounded-4">
+                            <a href="7.html">
+                                <img src="images/SPN7/1.avif">
+                                <div class="nen_mo text-center">
+                                    <h5>CDE CARTIER</h5>
+                                    <h5><b>123,900,000<sup>đ</sup></b></h5>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+        </script>
+        </section>
+        <!-- Phần Cuối (Footer) -->
+        <div id="phan_cuoi">
+            <div id="footer">
+                <div id="footer_left">
+                    <div>
+                        <p>© 2024 Công Ty Cổ Phần Vàng Bạc Đá Quý JDT</p>
+                        <p><img src="images/map.png" alt=""> 140 Lê Trọng Tấn, Tân Phú, TP.HCM</p>
+                        <p><img src="images/phone-book.png" alt=""> SĐT : 0975088626</p>
+                        <p><img src="images/email.png" alt=""> Contact : contact@jdt.vn</p>
+                    </div>
+                </div>
+                <div id="footer_mid">
+                    <h5>DỊCH VỤ KHÁCH HÀNG
+                        <hr>
+                    </h5>
+                    <ul>
+                        <li><a href="">Điều khoản và điều kiện</a></li>
+                        <li><a href="">Chính sách trả hàng hoàn tiền</a></li>
+                        <li><a href="">Chính sách giao hàng</a></li>
+                        <li><a href="">Chính sách quyền riêng tư</a></li>
+                    </ul>
+                </div>
+                <div id="footer_mid">
+                    <h5>THÔNG TIN CHUNG
+                        <hr>
+                    </h5>
+                    <ul>
+                        <li><a href="">Tin trang sức</a></li>
+                        <li><a href="">Quyền lợi thành viên</a></li>
+                        <li><a href="">Ưu đãi khi đánh giá</a></li>
+                    </ul>
+                </div>
+                <div id="footer_right">
+                    <h5>THEO DÕI CHÚNG TÔI
+                        <hr>
+                    </h5>
+                    <div class="footer_right_1">
+                        <img src="images/facebook.png" alt="">
+                        <img src="images/instagram.png" alt="">
+                        <img src="images/twitter.png" alt="">
+                        <img src="images/threads.png" alt="">
+                    </div>
+                    <h5>XEM THÊM TẠI
+                        <hr>
+                    </h5>
+                    <div class="footer_right_2">
+                        <img src="images/youtube.png" alt="">
+                        <img src="images/social-media.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Phần Cuối (Footer) -->
+    </div>
+
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <script src="js/cart.js" type="text/javascript" charset="utf-8"></script>
+    <script src="slick/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script src="slick/slick.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

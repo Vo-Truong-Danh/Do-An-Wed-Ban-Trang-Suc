@@ -1,0 +1,40 @@
+.chitietnhieusanpham{
+    height: auto;
+    width: 85%;
+    margin: 0 auto;
+    margin-bottom: 10%;
+    margin-top: 8%;
+    align-items: center;
+}
+.chitietnhieusanpham-tieude{
+    display: flex;
+    h1{
+        width: max-content;
+        margin: auto;
+    }
+    margin-bottom: 5%;
+}
+.chitietnhieusanpham-tieude hr{
+    width: 30%;
+    
+}
+.chitietnhieusanpham-loc{
+    width: 100%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    margin: 0 10px;
+}
+#content-area{
+    margin-top: 5%;
+    width: 100%; /* Đảm bảo iframe chiếm toàn bộ chiều rộng */
+    height: 192vh; /*  Chiếm toàn bộ chiều cao của viewport */
+    border: none; /* Ẩn đường viền của iframe (nếu có) */
+    overflow: hidden !important; /* Ẩn thanh cuộn */
+}
+.container{
+    margin-top: 4%;
+}

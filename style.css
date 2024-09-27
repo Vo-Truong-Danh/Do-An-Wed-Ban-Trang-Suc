@@ -1,0 +1,1060 @@
+@font-face {
+  font-family: 'OpenSans'; 
+  src: url('SanPham/Font/OpenSans-VariableFont.ttf') format('truetype'); 
+}
+
+/* Đặt con trỏ mặc định cho toàn bộ trang web */
+html {
+  cursor: url(SanPham/images/chuotJDT.png), auto;
+}
+
+/* Thay đổi con trỏ thành pointer với hình ảnh mouse-pointer.png khi di chuột qua các phần tử tương tác */
+a:hover,
+button:hover,
+input:hover,
+select:hover,
+.quantity button:hover,
+.quantity input:hover,
+.selectColor:hover,
+button:hover,
+textarea:hover ,
+.xu_huong_tim_kiem_node a:hover,
+.node_khuyenmai_content:hover {
+  cursor: url(SanPham/images/chuotJDT.png), pointer;
+}
+
+* {
+    font-family: 'OpenSans'; 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  li {
+    list-style: none;
+  }
+  .center {
+    display: flex;
+  justify-content: space-around;
+    align-items: center;
+  }
+  body::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: #515151;
+    border-radius: 5px;
+  }
+  
+  body::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .node_khuyenmai_content a{
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+    text-align: center;
+  }
+
+  /* ================================================================================= */
+  /* -------- Phần Wrapper -------- */
+  .dark{
+    border-top: 2px solid gray!important;
+    border-radius: 0 0 10px 10px;
+    background-color: rgb(255, 249, 238) !important;
+    width: 90vw !important;
+    height: 50vh!important;
+    margin-right: 50% !important;
+    margin-top: 85% !important;
+  }
+  #wrapper {
+    width: 100vw;
+    height: 100%;
+    min-height: 100%;
+    margin: 0 auto;
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  body{position: relative;}
+  #cuon_len_dau_trang{
+    position: fixed;
+    bottom: 20px;
+    left: 50px;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 30px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #cuon_len_dau_trang img{
+    text-decoration: none;
+    width: 54px;
+    height: 54px;
+  }
+  #cuon_len_dau_trang:hover{
+    opacity: 0.8;
+  }
+  /* ================================================================================= */
+  
+  /* -------- Phần đầu -------- */
+  #phan_dau {
+    width: 100%;
+    height: fit-content;
+    background-color: transparent ;
+    position: fixed;
+    z-index: 1;
+    background-color: #fff !
+  }
+  /* ------------------------------------------------ */
+  /* Tìm kiếm */
+  #search-results {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40vw;
+    height: 60vh;
+    position: absolute;
+    top: 60px;
+    background-color: white;
+    overflow-y: auto;
+    min-height: 200px;
+    background-color: rgb(254, 252, 239);
+    border-radius: 10px;
+    display: none;
+  }
+  #search-results::-webkit-scrollbar {
+    width: 15px;
+  }
+  
+  #search-results::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  #search-results::-webkit-scrollbar-thumb {
+    background: #515151;
+    border-radius: 5px;
+  }
+  .search-result-image {
+    width: 100px; 
+    height: 100px; 
+    background-size: cover;
+    margin-right: 10px;
+  }
+  .search-result {
+    display: flex; /* Biến .search-result thành flex container */
+    align-items: center; /* Căn giữa các phần tử con theo chiều dọc */
+    width:fit-content; 
+    margin-bottom: 10px;
+    
+  }
+  /* =================== */
+  .header_logo {
+    width: 22%;
+    height: fit-content;
+  }
+  .header_logo canvas{
+    width: fit-content;
+    height: fit-content;
+  }
+
+  html .dark-mode {
+    background-color: #121212;
+    color: white;
+  }
+  .navbar.dark-mode {
+    background-color: #333;
+  }
+  .btn-dark-mode {
+    color: white;
+  }
+  #header_search input{
+    width: 100%;
+    line-height: 40px;
+    border: none;
+    background-color: transparent ;
+    border-color: white;
+    border-bottom: 1px solid black;
+}
+  #header_search{
+    width: 30%;
+    padding-right: 19px;
+    position: relative;
+  }
+  #header_box {
+    margin-right: 5%;
+    width: fit-content;
+    height: 70px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;  
+    float: right;
+  }
+  #header_box_Gio_hang{
+      margin-right: 10%;
+  }
+  #cartButton{
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    a img{
+      height: 30px !important;
+      width: 30px !important;
+    }
+  }
+  #header_box_Sign_in{
+    cursor: pointer;
+    margin-right: 5%;
+    font-size: 13px;
+    width:max-content;
+    height: 60%;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px 10px;
+    float: right;
+    display: flexbox;
+    white-space: nowrap;
+  }
+  #header_box_Sign_in:hover{
+    box-shadow: 0px 0px 2px 1px gray;
+  }
+
+  #img_shopping_cart {
+    width: 30px;
+    height: 30px;
+  }
+  /* ------------------------------------------------ */
+ 
+  #head_link,
+  #head_link_left,
+  #head_link_left ul,
+  #head_link_right {
+    display: flex;
+    padding: 0 10px;
+    float: left;
+  }
+  #head_link_left{
+    justify-content: space-between;
+    align-items: center;
+  }
+  #head_link {
+    align-items: center;
+    height: 100px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 5px;
+    background-color: transparent;
+    position:fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    transition: background-color 0.5s ease; /* Hiệu ứng màu nền */
+    z-index: 1 !important; 
+}
+
+  #head_link_right {
+    justify-content: space-around;
+    align-items: center ;
+    float: right;
+    text-align: center;
+    width: 50%;
+    position: relative;
+  }
+  #head_link_right a {
+    text-decoration: none;
+    color: #333;
+    margin: 0 10px;
+    transition: 1s;
+  }
+  /* MENU cấp 2 */
+  #head_link_left ul li a {
+    text-decoration: none;
+    color: #5d666a;
+  }
+  #head_link_left{
+    width: fit-content;
+    white-space: nowrap;
+  }
+  .navbar{
+    width: 100%;
+  }
+  #head_link_left ul {
+    float: left;
+    font-size: 15px;
+    width: 80%;
+    justify-content: space-between;
+    padding: 5px 0px 0px 5px;
+  }
+  #head_link_left ul li a:hover {
+    color: rgb(255, 161, 46);
+    transition: 0.3s;
+  }
+  #head_link_left ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    padding-left: 10px;
+  }
+  #head_link_left li {
+    margin-right: 20px;
+    position: relative;
+
+  }
+  #sub_menu{
+    line-height: 70px;
+  }
+  .tcv{
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    video {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  #head_link_left li a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  #head_link_left li ul {
+    display: none;  /* Ẩn menu cấp 2 mặc định */
+    justify-content: space-around;
+    position: absolute;
+    top: 10px;
+    left: -18vw;
+    box-shadow: none;
+    margin-left: 0;
+    background-color:rgb(254, 250, 245);
+    border-color: rgb(254, 250, 245);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 300px;
+  }
+  #head_link_left_li_title{
+    font-size: 25px;
+    padding: 15px 0px;
+
+  }
+  #head_link_left li ul li {
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  
+  #head_link_left li ul li a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  #head_link_left li:hover ul {
+    display: flex;
+  }
+  .head_link_left_li_title_hr {
+  border: 1px solid white;
+  background-color: transparent;
+  width: 0%;
+  display: block;
+  transition: width 0.5s ease-in-out; 
+}
+
+#head_link_left_li_title:hover .head_link_left_li_title_hr {
+  border: 1px solid black;
+  background-color: black;
+  width: 100%; /* Khi hover, chiều rộng sẽ là 100% */
+  opacity: 0;
+}
+.sub_menu_bg{
+  width: 250px;
+  height: 250px;
+  background-position: center;
+  background-size:cover;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+.sub_menu_bg:hover{
+  transform: scale(1.1);
+  box-shadow: 0px 0px 10px 1px gray;
+}
+  /* Kết thúc menu */
+  /* ================================================================================= */
+  
+  /* -------- Phần giữa -------- */
+  #phan_giua {
+    /* margin-top: 5%; */
+    height: 100%;
+    min-height: 100%;
+  }
+  /* ------------------------------------------------ */
+  .slide_banner {
+    width: 100%;
+    height: fit-content;
+    margin-top: 2%;
+  }
+  .carousel-item img {
+    width: 100%;
+  }
+  /* ------------------------------------------------ */
+  #xu_huong_tim_kiem{
+    width: 85%;
+    background-color: transparent;
+    max-width: 98%;
+    margin: 0 auto; 
+  }
+  #xu_huong_tim_kiem_list{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .xu_huong_tim_kiem_node img{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 5px 1px gray;
+    transition: opacity 0.5s;
+  }
+  .xu_huong_tim_kiem_node{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: all 0.5s ease;
+  }
+  .xu_huong_tim_kiem_node a{
+    text-decoration: none;
+    color: black;
+  }
+  #xu_huong_tim_kiem_list .xu_huong_tim_kiem_node:hover{  
+    transform: scale(1.1);
+    transition: 0.5s;
+  }
+  #xu_huong_tim_kiem_list:hover > .xu_huong_tim_kiem_node:not(:hover){
+    opacity: 0.5;
+    transform: scale(0.9);
+    transition: 0.7s;
+  }
+  
+  /* ------------------------------------------------ */
+  .node_khuyenmai_wrapper {
+    width: 60px;
+    height:70px;
+    position: relative;
+  }
+  
+  .node_khuyenmai_banner {
+    position: absolute;
+    background-color: #d10000;
+    width: 50px;
+    height: 100%;
+    top: 5%;
+    left: 10%;
+    transform: skewY(-10deg);
+    text-align: center;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%); 
+  }
+  
+  .node_khuyenmai_banner::before, 
+  .node_khuyenmai_banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 10px;
+    height: 15px;
+    background-color: #d10000;
+    border-radius: 0 50% 50% 0;
+  }
+  
+  .node_khuyenmai_banner::before {
+    left: -5px;
+    transform: rotate(45deg);
+  }
+  
+  .node_khuyenmai_banner::after {
+    right: -5px;
+    transform: rotate(-45deg);
+  }
+  
+  .node_khuyenmai_banner h3 {
+    font-size: 13px;
+    color: white;
+    margin: 5px 0;
+    font-weight: bold;
+  }
+  
+  .node_khuyenmai_banner span {
+    font-size: 13px;
+    color: white;
+    font-weight: bold;
+  }
+  /* ------------------------------------------------ */
+  #list_khuyenmai{
+    width: 85%;
+    max-width: 98%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 12px;
+    row-gap: 50px;
+    background-color: transparent;
+  }
+  .list_khuyenmai_title{
+    grid-column: span 4;
+    padding: 80px 0px 50px 0px;
+  }
+  .list_khuyenmai_horizal{
+    width: 19%;
+    border: 1px solid black;
+    height: 1px;
+    background-color: black;
+  }
+  .node_khuyenmai{
+    height: 450px;
+    padding-bottom: 100px;
+  }
+  .node_khuyenmai_content{
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .node_khuyenmai_content h5{
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-align: center;
+  }
+  
+  .node_khuyenmai_content a:hover{
+    color: rgb(244, 100, 100);
+  }
+  /* Background của sản phẩm và hover */
+  .node_khuyenmai_bg_1 {
+    background-image: url(SanPham/images/SPDC2/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_khuyenmai_bg_1:hover {
+    background-image: url(SanPham/images/SPDC2/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  .node_khuyenmai_bg_2 {
+    background-image: url(SanPham/images/SPN1/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_khuyenmai_bg_2:hover {
+    background-image: url(SanPham/images/SPN1/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .node_khuyenmai_bg_3 {
+    background-image: url(SanPham/images/SPV6/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_khuyenmai_bg_3:hover {
+    background-image: url(SanPham/images/SPV6/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .node_khuyenmai_bg_4 {
+    background-image: url(SanPham/images/SPDC1/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_khuyenmai_bg_4:hover {
+    background-image: url(SanPham/images/SPDC1/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .node_khuyenmai_bg_5 {
+    background-image: url(SanPham/images/SPDC2/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_khuyenmai_bg_5:hover {
+    background-image: url(SanPham/images/SPDC2/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .node_khuyenmai_bg_6 {
+    background-image: url(SanPham/images/SPN3/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_khuyenmai_bg_6:hover {
+    background-image: url(SanPham/images/SPN3/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .node_khuyenmai_bg_7 {
+    background-image: url(SanPham/images/SPDC4/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_khuyenmai_bg_7:hover {
+    background-image: url(SanPham/images/SPDC4/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .node_khuyenmai_bg_8 {
+    background-image: url(SanPham/images/SPV4/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_khuyenmai_bg_8:hover {
+    background-image: url(SanPham/images/SPV4/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* =========================================== */
+  /* ------------------------------------------------ */
+  #list_favorite{
+    width: 85%;
+    max-width: 98%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 12px;
+    row-gap: 15px;
+    background-color: transparent;
+  }
+  .list_favorite_title{
+    grid-column: span 4;
+    padding: 80px 0px 50px 0px;
+  }
+  .list_favorite_horizal{
+    width: 19%;
+    border: 1px solid black;
+    height: 1px;
+    background-color: black;
+  }
+  .node_favorite{
+    height: 450px;
+    padding-bottom: 100px;
+  }
+  .node_favorite_content a{
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+    text-align: center;
+  }
+  .node_favorite_content h5{
+    font-weight: 400;
+    letter-spacing: 3px;
+    text-align: center;
+  }
+  
+  .node_favorite_content a:hover{
+    color: rgb(244, 100, 100);
+  }
+  /* Background của sản phẩm và hover */
+  .node_favorite_bg_1 {
+    background-image: url(SanPham/images/SPN4/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_favorite_bg_1:hover {
+    background-image: url(SanPham/images/SPN4/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  .node_favorite_bg_2 {
+    background-image: url(SanPham/images/SPN6/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_favorite_bg_2:hover {
+    background-image: url(SanPham/images/SPN6/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .node_favorite_bg_3 {
+    background-image: url(SanPham/images/SPDC2/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_favorite_bg_3:hover {
+    background-image: url(SanPham/images/SPDC2/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .node_favorite_bg_4 {
+    background-image: url(SanPham/images/SPDC4/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_favorite_bg_4:hover {
+    background-image: url(SanPham/images/SPDC4/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .node_favorite_bg_5 {
+    background-image: url(SanPham/images/SPDC6/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_favorite_bg_5:hover {
+    background-image: url(SanPham/images/SPDC6/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .node_favorite_bg_6 {
+    background-image: url(SanPham/images/SPDC2/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_favorite_bg_6:hover {
+    background-image: url(SanPham/images/SPDC2/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .node_favorite_bg_7 {
+    background-image: url(SanPham/images/SPDC4/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_favorite_bg_7:hover {
+    background-image: url(SanPham/images/SPDC4/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .node_favorite_bg_8 {
+    background-image: url(SanPham/images/SPV1/1.avif);
+    height: 90%;
+    background-size: cover;
+    background-position: center;
+    transition: 0.7s;
+    border-radius: 10px;
+  }
+  .node_favorite_bg_8:hover {
+    background-image: url(SanPham/images/SPV1/2.avif);
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /* =========================================== */
+  .node_favorite_content{
+    height: 30%;
+    flex-direction: column;
+    font-size: 15px;
+    line-height: 15px;
+  }
+  /* ------------------------------------------------ */
+  /* Phần cam kết */
+  #cam_ket{
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 12px;
+    row-gap: 15px;
+    background-color: transparent;
+  }
+  .cam_ket_title{
+    grid-column: span 4;
+    padding: 40px 0px 60px 0px;
+  }
+  .cam_ket_horizal{
+    width: 19%;
+    border: 1px solid black;
+    height: 1px;
+    background-color: black;
+  }
+  /* ------------------------------------------------ */
+  /* ================================================================================= */
+  
+  /* -------- Phần cuối -------- */
+  #phan_cuoi {
+    width: 100%;
+    height: 450px;
+    background-color: #f2f2f2;
+    padding: 15px;
+  }
+  /* ------------------------------------------------ */
+  #footer {
+    padding-top: 6%;
+    padding-left: 6%;
+    height: 130%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    background: url("images/bannerfotter.jpg");
+    background-size:cover;
+  }
+  /* ------------------------------------------------ */
+  #footer_left,
+  #footer_mid,
+  #footer_right {
+    width: fit-content;
+    height: 100%;
+  }
+  #footer_left div{
+      padding-top: 5px;
+  }
+  #footer_left div img {
+    width: 20px;
+    height: 20px;
+  }
+  #footer_mid{
+      width: 20%;
+  }
+  #footer_mid h5,#footer_mid ul,#footer_right h5 {
+     margin: 0;
+     padding: 0;
+     padding-top:5px;
+     color: #1b1b1b;
+  }
+  #footer_mid h5 hr,#footer_right h5 hr{
+      margin: 0;
+      margin-top: 5px;
+      width: 60%;
+      border: 1px solid black;
+  }
+  #footer_mid ul li a{
+      text-decoration: none;
+      color: #1b1b1b;
+  }
+  #footer_right{
+      width: 20%;
+  }
+  #footer_right h5 hr{
+      margin: 0;
+      margin-top: 5px;
+      width: 60%;
+      border: 1px solid black;
+  }
+  #footer_right div img{
+      width: 20px;
+      height: 20px;
+  }
+  .footer_right_1{
+      padding: 10px 0px;
+      width: 50%;
+      display: flex;
+      justify-content: space-around;
+  }
+  .footer_right_2{
+      padding: 10px 0px;
+      padding-left: 4 px;
+      width: 25%;
+      display: flex;
+      justify-content: space-around;
+  }
+  body[data-bs-theme="dark"] #head_link {
+    background-color: #333 !important;
+    color: #fff !important;
+    a{
+     color: #fff; 
+    }
+    #header_box_Sign_in{
+      border-color: #fff;
+    }
+    .dark{
+      color: #fff;
+      background-color: #333 !important;
+    }
+    
+  }
+  body[data-bs-theme="dark"] {
+    .node_khuyenmai_content a,.node_favorite_content a{
+      color: #fff;
+    }
+    
+  }
+
+  body[data-bs-theme="light"] #head_link {
+    background-color: #f8f9fa;
+    color: #000;
+    a{
+      color: #000; 
+     }
+     #header_box_Sign_in{
+       border-color: #000;
+     }
+  }
+.navbar input{
+  background-color: transparent;
+}
+  /* Responsive Design */
+  /* PC */
+  /* @media (max-width: 768px) {
+    #header_box {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    #head_link_left ul {
+      width: 100%;
+      flex-direction: column;
+    }
+    #head_link_left ul li {
+      margin-bottom: 10px;
+    }
+    #head_link_right {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+    #head_link_right hr {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    #head_link_right div {
+      margin-bottom: 10px;
+    }
+    #footer {
+      flex-direction: column;
+    }
+    #footer_left,
+    #footer_mid,
+    #footer_right {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    #header input {
+      width: 100%;
+    }
+    #header_box_Sign_in_hr,
+    #header_box_Sign_up_hr {
+      display: none;
+    }
+  } */
+  .showcenter{
+    width: 90%;
+  }
+  .slick-slider {
+    margin-left: 1.5vw;
+    width: 95vw;
+    height: fit-content;
+    
+    margin-bottom: 10%  ;
+  }
+  .shownguoimau-1{
+    height: 500px;
+    width: 95%;
+    background-image: url(images/nguoi11.jpg);
+    background-size: cover;
+    transition: all 0.4s ease-in-out;
+  }
+  .shownguoimau-2{
+    height: 500px;
+    width: 95%;
+    background-image: url(images/nguoi22.jpg);
+    background-size: cover;
+    transition: all 0.4s ease-in-out;
+  }
+  .shownguoimau-3{
+    height: 500px;
+    width: 95%;
+    background-image: url(images/nguoi33.jpg);
+    background-size: cover;
+    transition: all 0.4s ease-in-out;
+  }
+  .shownguoimau-4{
+    height: 500px;
+    width: 95%;
+    background-image: url(images/nguoi44.jpg);
+    background-size: cover;
+    transition: all 0.4s ease-in-out;
+  }
+  .shownguoimau-5{
+    height: 500px;
+    width: 95%;
+    background-image: url(images/nguoi55.jpg);
+    background-size: cover;
+    transition: all 0.4s ease-in-out;
+  }
+  .shownguoimau-1:hover{
+    background-image: url(images/nguoi1.jpg);
+    background-size: cover;
+  }
+  .shownguoimau-2:hover{
+    background-image: url(images/nguoi2.jpg);
+    background-size: cover;
+  }
+  .shownguoimau-3:hover{
+    background-image: url(images/nguoi3.jpg);
+    background-size: cover;
+  }
+  .shownguoimau-4:hover{
+    background-image: url(images/nguoi4.jpg);
+    background-size: cover;
+  }
+  .shownguoimau-5:hover{
+    background-image: url(images/nguoi5.jpg);
+    background-size: cover;
+  }
